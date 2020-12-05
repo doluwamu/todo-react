@@ -47,12 +47,12 @@ class App extends React.Component {
 
   handleEdit = (id) => {
     const { todos } = this.state;
-    for (let i = 0; i < todos.length; i++) {
-      const todo = todos[i].id;
+    const todoIndex = todos.findIndex((t) => t.id === id);
 
-      const ind = todos.indexOf(todo);
-      console.log(ind);
-    }
+    this.setState({
+      value: todos[todoIndex].title,
+    });
+    this.handleDelete(id);
   };
 
   clearInput = () => {
